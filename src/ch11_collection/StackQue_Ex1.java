@@ -20,7 +20,7 @@ public class StackQue_Ex1 {
 		 * LinkedList : Queue, List 인터페이스 모두 구현	 
 		 * */
 		
-		String cars[] = {"소나타", "그랜저", "SM5", "K5"};
+		String cars[] = {"소나타", "그랜저", "SM5", "K9"};
 		Stack<String> stack = new Stack<String>() ;{
 		for(String s : cars) {
 			stack.push(s);
@@ -32,13 +32,13 @@ public class StackQue_Ex1 {
 			System.out.println("스택에 저장된 객체의 개수 : " + stack.size() + "->" + stack);
 			
 			Queue<String> queue = new LinkedList<String>();
-			for (String s : cars) {
+			for (String s : cars) queue.offer(s); {
 				queue.offer(s);
 				System.out.println("큐에 저장된 객체의 개수 : " + queue.size() + "->" + queue);
-				System.out.println(queue.offer() + " : offer");
-				System.out.println("큐에 저장된 객체의 개수 : " + stack.size() + "->" + queue);
-				System.out.println(queue.poll() + " : pull");
-				System.out.println("스택에 저장된 객체의 개수 : " + stack.size() + "->" + queue);
+				System.out.println(queue.peek());
+				System.out.println("큐에 저장된 객체의 개수 : " + queue.size() + "->" + queue);
+				System.out.println(queue.poll());
+				System.out.println("큐에 저장된 객체의 개수 : " + queue.size() + "->" + queue);
 			}
 			
 		}
