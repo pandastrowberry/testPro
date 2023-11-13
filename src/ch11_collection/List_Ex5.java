@@ -37,11 +37,12 @@ public class List_Ex5 {
 
 			@Override
 			public int compare(Person o1, Person o2) {
-				// TODO Auto-generated method stub
+				//TODO Auto-generated method stub
 				
 				return o1.name.compareTo(o2.name);
 			}
-		});
+		}
+	 );
 		print(li );
 	}
 
@@ -56,9 +57,9 @@ class CompPerson implements Comparator<Person> {
 
 	@Override
 	public int compare(Person o1, Person o2) {
-		// TODO Auto-generated method stub
+		//TODO Auto-generated method stub
 		return (o1.age-o2.age);
-	//	return o1.name.compareTo(o2.name);
+	//return o1.name.compareTo(o2.name);
 	}
 	
 }
