@@ -18,22 +18,20 @@ public class ExCollection02 {
 		 * Student[studno = 1234, name = 홍길동, major = 경영]
 		 * */
 		
-		Set<Student> set = new HashSet<>();
-		set.add(new Student("1234", "홍길동", "경영"));
-		set.add(new Student("2345", "홍길동", "경영"));
-		set.add(new Student("2345", "홍길동", "컴공")); //추가 x
-		set.add(new Student("1234", "홍길동", "통계")); //추가 x
-		set.add(new Student("4567", "홍길동", "경영"));
-		System.out.println("등록 학생 수 : " + set.size());
-		for (Student s : set) {
-			System.out.println(s);
-		}
+		Set<Student> set = new HashSet<Student>();
+		set.add(new Student("1234","홍길동","경영"));
+		set.add(new Student("2345","홍길순","경영"));
+		set.add(new Student("2345","홍길순","컴공")); //추가 불가
+		set.add(new Student("1234","홍길동","통계")); //추가 불가
+		set.add(new Student("4567","홍길동","경영"));
+		System.out.println("등록 학생 수:" + set.size()); //3
+		for (Student s : set) {			System.out.println(s);		}
 	}
-
 }
-
 class Student {
-	String studno, name, major;
+	String studno;
+	String name;
+	String major;
 	public Student(String studno, String name, String major) {
 		super();
 		this.studno = studno;
@@ -44,7 +42,15 @@ class Student {
 	public String toString() {
 		return "Student [studno=" + studno + ", name=" + name + ", major=" + major + "]";
 	}
+	
+	@Override
 	public boolean equals(Object obj) {
-		Student s = (Student) 
+		Student s  = (Student) obj;
+		return studno.equals(s.studno) && name.equals(s.name);
+	}
+	
+	@Override
+	public int hashCode() {
+		return studno.hashCode()+name.hashCode();
 	}
 }

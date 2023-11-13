@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class StackQue_Ex1 {
+public class StackQueue_Ex1 {
 		/*
 		 * Stack 클래스 : LIFO
 		 * 				Vector 클래스의 하위 클래스

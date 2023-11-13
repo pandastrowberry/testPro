@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class StackQue_Ex3 {
+public class StackQueue_Ex3 {
 	public static Stack<String> back = new Stack<String>();
 	public static Stack<String> forward = new Stack<String>();
 	public static void main(String[] args) {
