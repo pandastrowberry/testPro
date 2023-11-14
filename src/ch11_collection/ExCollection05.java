@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class ExCollection05 {
 
@@ -36,6 +37,60 @@ public class ExCollection05 {
 				System.out.println(p);
 			}
 		}
+		System.out.println("2) 월별 \t 생산 \t 판매 \t 반품 합계 현황");
+		it = tlist.iterator();
+		Map<Integer, List<Product>> map2 = new HashMap<>();
+		while(it.hasNext()) {
+			Product p = it.next();
+			if(!map2.containsKey(p.mon))
+				map2.put(p.mon, new int[3]);
+			map2.get(p.mon)[p.con - 1] += p.qty;
+		}
+		for (Integer m : map2.keySet()) {
+			System.out.println(m + "월 \t");
+			for (int q : map2.get(m)) {
+				System.out.println(q + "\t");
+			}
+			System.out.println();
+		}
+		System.out.println("3) 제품별 총 생산, 판매, 반품 현황");
+		it = tlist.iterator();
+		Map<String, int[]> map3 = new HashMap<>();
+		while(it.hasNext()) {
+			Product p = it.next();
+			if(!map3.containsKey(p.carname))
+				map3.put(p.carname, new int[3]);
+			map3.get(p.carname)[p.con-1]+=p.qty;
+		}
+		for (String m : map3.keySet()) {
+			System.out.println(m + "\t");
+			for (int q : map3.get(m)) {
+				System.out.println(q + "\t");
+			}
+			System.out.println();
+		}
+		System.out.println("4) 월별 제품별 생산, 판매, 반품 현황");
+		it = tlist.iterator();
+		Map<String, int[]> map4 = new TreeMap<>();
+		while(it.hasNext()) {
+			Product p = it.next();
+			String key = (p.mon > 9? p.mon : "0" + p.mon) +" : " + p.carname);
+			if(!map4.containsKey(key))
+				map4.put(key, new int[3]);
+			map4.get(key)[p.con-1] += p.qty;
+			String mon = "";
+			for (String key : map4.keySet()) {
+				String[] temps = key.split(":");
+				if(!temps[0].equals(mon))
+					System.out.println(temps[0] + "월>");
+				mon = temps[0];
+				System.out.println("\t" + temps[1] + "\t");
+				for (int q : map4.get(key)) {
+					System.out.println(q + "\t");
+				}
+				System.out.println();
+			}
+		}
 	}
 }
 
@@ -53,6 +108,5 @@ class Product {
 		this.remark = str[4];
 		else
 		
-	
 	}
 }
