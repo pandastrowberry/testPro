@@ -7,9 +7,11 @@ public class Thread_Ex5 {
 		/*
 		 * 동기화(synchronized) : synchronized 예약어로 표현
 		 * 동기화 블록
-		 * lock 객체를 소유한 스레드만 동기화 영역 실행
-		 * lock은 Object 객체
-		 * 
+		 * - lock 객체를 소유한 스레드만 동기화 영역 실행
+		 * - lock은 Object 객체
+		 * - 기본자료형은 lock으로 사용x
+		 * - 모든 스레드가 공유하는 객체여야 함
+		 * 동기화 메소드 
 		 * */
 		Thread t1 = new PrintThread('A');
 		Thread t2 = new PrintThread('B');
