@@ -15,38 +15,34 @@ public class ExCollection04 {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		Scanner sc = 
-				new Scanner(new File("src/ch11_collection/student.txt"));
-		List<Student2> li = new ArrayList<Student2>();
-		Map<String, Student2> map = new HashMap<>();
+				new Scanner(new File("src/ch11_challenge.txt"));
+		List<Challenge> li = new ArrayList<Challenge>();
+		Map<String, Challenge> map = new HashMap<>();
 		
 		while (sc.hasNextLine()) {
-			String line = sc.nextLine();  //한줄 읽기
+			String line = sc.nextLine();
 			String[] str = line.split(",");
-			Student2 s = new Student2(str[0], str[1],
-					Integer.parseInt(str[2]), 
-					Integer.parseInt(str[3]), 
-					Integer.parseInt(str[4]) );
-			li.add(s);
-			map.put(s.stno, s);
 		}
-		Collections.sort(li, new Comparator<Student2>() {
+		Collections.sort(li, new Comparator<Challenge>() {
 
 			@Override
-			public int compare(Student2 o1, Student2 o2) {
-				// TODO Auto-generated method stub
+			public int compare(Challenge o1, Challenge o2) {
 				return o2.tot - o1.tot;
 			}
-		});
+		}
+	);
 		
-		for (Student2 s : li) {
+		for (Challenge s : li) {
 			System.out.println(s);
 		}
 		
 		Scanner sc2 = new Scanner(System.in);
-		System.out.println("학번을 입력 하세요, end(9999)");
+		System.out.println("계급을 입력 하세요. (종료 : 9999)");
 	    while(true) {
 	    	String input = sc2.nextLine();
-	    	if (input.equals("9999")) { break; }
+	    	if (input.equals("9999")) { 
+	    		break; 
+	    	}
 	  
 	    /*
 	    	for (int i=0 ; i < li.size() ; i++) {
@@ -55,38 +51,36 @@ public class ExCollection04 {
 	    		}
 	    	}
 	    */
-	    	Student2 s = map.get(input);
+	    	Challenge s = map.get(input);
 	    	System.out.println("등수 : "+ (li.indexOf(s)+1));
 	    	System.out.println(s);
 	    }
 	    
 		/*
-		 * 1. (합계) 내림차순 프린트 
+		 * 1. 합계를 내림차순으로 정렬하여 출력 
 		 * 2. stno를 입력해서 등수 확인
 		 */
 	}
 }
 
-class Student2 {
-	String stno;
-	String name;
-	int kor;
-	int math;
-	int eng;
+class Challenge {
+	String soldier;
+	int test1;
+	int test2;
+	int test3;
+	int test4;
 	int tot;
-	public Student2(String stno, String name, int kor, int math, int eng) {
+	public Challenge(String soldier, int test1, int test2, int test3, int test4) {
 		super();
-		this.stno = stno;
-		this.name = name;
-		this.kor = kor;
-		this.math = math;
-		this.eng = eng;
-		tot=kor+math+eng;
+		this.soldier = soldier;
+		this.test1 = test1 ;
+		this.test2 = test2;
+		this.test3 = test3;
+		this.test4 = test4;
+		tot = test1 + test2 + test3 + test4;
 	}
 	@Override
 	public String toString() {
-		return "Student2 [stno=" + stno + ", name=" + name + ", kor=" + kor + ", math=" + math + ", eng=" + eng
-				+ ", tot=" + tot + "]";
+		return "Challenge [solider=" + soldier + " test1 = " + test1 + ", test2 = " + test2 + ", test3 = " + test3 + ", test4 = " + test4 + "tot = " + tot + "]";
 	}
-}	
-	
+}		
