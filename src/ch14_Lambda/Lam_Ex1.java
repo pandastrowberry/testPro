@@ -1,4 +1,4 @@
-package ch14_Lambda_Stream;
+package ch14_Lambda;
 
 public class Lam_Ex1 {
 
