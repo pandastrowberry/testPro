@@ -18,6 +18,7 @@ public class Stream_Ex2 {
 		IntStream intStream = Arrays.stream(intArray);
 		intStream.forEach(a -> System.out.print(a + ", "));
 		System.out.println();
+		
+		
 	}
-
 }
