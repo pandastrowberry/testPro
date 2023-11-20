@@ -22,14 +22,14 @@ public class Analysis {
 		 */
 	
 		List li = new ArrayList();
-		Scanner sc = new Scanner(new File("src/chan/ch11_challenge.txt"));
+		Scanner sc = new Scanner(new File("src/조영찬/ch11_challenge.txt"));
 		while (sc.hasNext()) {
 			String line = sc.next();
 			Challenge p = new Challenge(line);
 			li.add(p);
 			//System.out.println(p);
 		}
-		  System.out.println("1) 중대별 검정 현황");
+		  System.out.println("1) 중대별 체력검정 현황");
 			
 			Iterator<Challenge> it = li.iterator();
 			Map <String, List<Challenge>> map1 = new HashMap<>();
@@ -42,7 +42,7 @@ public class Analysis {
 			System.out.println(map1.keySet());
 			
 			for (String formation : map1.keySet()) {
-				System.out.println(formation+" 체력검정 현황");
+				System.out.println("==========" + formation + "================");
 				for (Challenge p : map1.get(formation)) {  
 					System.out.println(p);
 				}
@@ -50,9 +50,8 @@ public class Analysis {
 	}
 }
 class Challenge {
-	String soldier, skil, number;
+	String soldier, skil, number, formation;
 	int pushup, situp, pullup, shooting;
-	String formation;
 	
 	public Challenge(String line) {
 		

@@ -28,7 +28,7 @@ public class Generator {
 		int con = 0;
 		
 		try {
-			fos = new FileOutputStream("src/chan/ch11_challenge.txt");
+			fos = new FileOutputStream("src/조영찬/ch11_challenge.txt");
 			ps = new PrintStream(fos);
 			while(limit ++ < 100) {
 				ps.print(soldier[(int) (Math.random() * 10)] + ",");
