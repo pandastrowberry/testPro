@@ -61,6 +61,8 @@ public class Stream_Ex14 {
 		Optional<Student2> max = Stream.of(strarr).collect(Collectors.maxBy(Comparator.comparingInt(s -> s.getScore())));
 		System.out.println("점수가 가장 높은 학생 : " + max.get());
 		
-		
+		System.out.println("8. 학생 이름 리스트 출력 : Collectors.joining()");
+		String list = Stream.of(strarr).map(Student2 :: getName).collect(Collectors.joining("==", "{", "}"));
+		System.out.println(list);
 	}
 }
