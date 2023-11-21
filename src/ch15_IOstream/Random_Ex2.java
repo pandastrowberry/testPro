@@ -18,6 +18,8 @@ public class Random_Ex2 {
 				raf.writeInt(score[i]);
 			}
 			System.out.println("===========");
+			
+			raf.seek(0);
 			while(true) {
 				System.out.println(raf.readInt());
 			}
@@ -28,8 +30,5 @@ public class Random_Ex2 {
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
-		
-		
 	}
-
 }

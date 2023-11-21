@@ -1,5 +1,6 @@
 package ch15_IOstream;
 
+import java.io.IOException;
 import java.io.RandomAccessFile;
 
 public class Random_Ex1 {
@@ -13,10 +14,10 @@ public class Random_Ex1 {
 			raf.writeInt(100);
 			System.out.println("파일 포인터의 위치 : " + raf.getFilePointer());
 			raf.writeLong(100L);
-			System.out.println("파일 포인터의 위치 : " + raf.);
-		} catch ( e) {
+			System.out.println("파일 포인터의 위치 : " + raf.getFilePointer());
+		} catch (IOException e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		}
 	}
-
 }
